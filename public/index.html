@@ -7,21 +7,58 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-    <div id="app">
-        <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
-            <a-assets>
-                <img v-for="data in markerData" v-bind:id="data.image" v-bind:src="'./figures/'+data.image+'.png'">
-            </a-assets>
-
-            <a-marker v-for="data in markerData" type="pattern" v-bind:url="'./markers/'+data.marker+'.patt'">
-                <a-box position='0 0.5 0' material='color: green;'></a-box>
-            </a-marker>
-
-            <a-entity camera></a-entity>
-        </a-scene>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./index.js"></script>
+    <a-scene class="" canvas="" vr-mode-ui="" embedded="" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+        inspector="" keyboard-shortcuts="" screenshot="">
+        <a-assets>
+            <img id="figure1" src="./figures/figure1.png" crossorigin="anonymous">
+            <img id="figure2" src="./figures/figure2.png" crossorigin="anonymous">
+            <img id="figure3" src="./figures/figure3.png" crossorigin="anonymous">
+            <img id="figure4" src="./figures/figure4.png" crossorigin="anonymous">
+            <img id="figure5" src="./figures/figure5.png" crossorigin="anonymous">
+            <img id="figure6" src="./figures/figure6.png" crossorigin="anonymous">
+            <img id="figure7" src="./figures/figure7.png" crossorigin="anonymous">
+        </a-assets>
+        <a-marker type="pattern" url="./markers/marker1.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker2.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker3.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker4.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker5.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker6.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-marker type="pattern" url="./markers/marker7.patt" arjs-anchor="" position="" rotation="" scale="" visible=""
+            material="" arjs-hit-testing="">
+            <a-box position="" material="color: red" rotation="" scale="" visible="" geometry=""></a-box>
+        </a-marker>
+        <a-entity camera="" position="" rotation="" scale="" visible=""></a-entity>
+        <canvas class="a-canvas" data-aframe-canvas="true" width="1974" height="0" style="width: 987px; height: 0px;"></canvas>
+        <div class="a-enter-vr embedded" aframe-injected="" style="position: fixed;">
+            <button class="a-enter-vr-button" aframe-injected=""></button>
+        </div>
+        <div class="a-orientation-modal a-hidden" aframe-injected="">
+            <button aframe-injected="">Exit VR</button>
+        </div>
+        <a-entity light="" data-aframe-default-light="" aframe-injected="" position="" rotation="" scale="" visible=""></a-entity>
+        <a-entity light="" position="" data-aframe-default-light="" aframe-injected="" rotation="" scale="" visible=""></a-entity>
+    </a-scene>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="./index.js"></script> -->
 </body>
 
 </html>
