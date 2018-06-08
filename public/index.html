@@ -5,22 +5,27 @@
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"> </script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css" />
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene id="app" embedded arjs='debugUIEnabled: false;'>
-            <a-assets>
-                <img v-for="data in markerData" v-bind:id="data.image" v-bind:src="'./figures/'+data.image+'.png'">
-            </a-assets>
+    <a-scene id="app" embedded arjs='debugUIEnabled: false;'>
+        <a-assets>
+            <img v-for="data in markerData" v-bind:id="data.image" v-bind:src="'./figures/'+data.image+'.png'">
+        </a-assets>
 
-            <a-marker v-for="data in markerData" type="pattern" v-bind:url="'./markers/'+data.marker+'.patt'">
-                <a-image rotation="-90 0 0" scale="3 3 3" crossorigin="anonymous" v-bind:src="'#'+data.image"></a-image>
-            </a-marker>
+        <a-marker v-for="data in markerData" type="pattern" v-bind:url="'./markers/'+data.marker+'.patt'">
+            <a-image rotation="-90 0 0" scale="3 3 3" crossorigin="anonymous" v-bind:src="'#'+data.image"></a-image>
+        </a-marker>
 
-            <a-entity camera></a-entity>
-        </a-scene>
-        <script src="./index.js"></script>
+        <a-entity camera></a-entity>
+    </a-scene>
+    <div id="snap-button-wrapper">
+        <button id="snap-button"></button>
+    </div>
+    <script src="./capture.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
