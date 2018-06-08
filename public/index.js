@@ -1,22 +1,15 @@
-function getScreenshot(scale) {
-	scale = scale || 1;
-	let videoEl = document.querySelector("video");
-    const canvas = document.createElement("canvas");
-    console.log(document.querySelector("video"))
-	canvas.width = videoEl.clientWidth * scale;
-	canvas.height = videoEl.clientHeight * scale;
-	return canvas.getContext("2d");
+let arr = [];
+for (let i = 0; i < 8; i++){
+    let image = "figure" + (i+1).toString();
+    let marker = "marker" + (i+1).toString();
+    arr.push({image:image,marker:marker})
 }
 
-function getText() {
-    console.log("st")
-    let image = getScreenshot(1);
-    console.log(image)
-	Tesseract.recognize(image, {
-		lang: "eng"
-	}).then(function(result) {
-		console.log(result);
-	});
-}
+console.log(arr)
 
-document.getElementById("test").addEventListener("click", getText);
+var app = new Vue({
+    el: '#app',
+    data: {
+      markerData: arr
+    }
+  })

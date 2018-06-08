@@ -5,30 +5,21 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-    <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <div id="app">
+        <a-scene embedded arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-assets>
+                <img v-for="data in markerData" v-bind:id="data.image" v-bind:src="'./figures/'+data.image+'.png'">
+            </a-assets>
 
-        <!-- this two following a-marker will be confused as blue image and red image patterns are very similar -->
+            <a-marker v-for="data in markerData" preset='custom' type="pattern" v-bind:url="'./markers/'+data.marker+'.patt'">
+                <a-box position='0 0.5 0' material='color: green;'></a-box>
+            </a-marker>
 
-        <a-marker preset='custom' type="pattern" url='./pattern2.patt'>
-            <a-box position='0 0.5 0' material='color: green;'></a-box>
-        </a-marker>
-
-        <a-marker preset='custom' type="pattern" url='./pattern4.patt'>
-            <a-image src="./sample.png"></a-image>
-        </a-marker>
-
-        <a-marker preset='custom' type="pattern" url='./pattern5.patt'>
-            <a-box position='0 0.5 0' material='color: red;'></a-box>
-        </a-marker>
-
-        <!-- <a-marker preset='custom' type="pattern" url='./pattern3.patt'>
-            <a-box position='0 0.5 0' material='color: yellow;'></a-box>
-        </a-marker> -->
-        <!-- I created and printed a barcode of 3x3 matrix with value of '7' with external online generator -->
-        <!-- Here I'm telling ar.js to show a yellow box when he recognize one  -->
-
-        <a-entity camera></a-entity>
-    </a-scene>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
