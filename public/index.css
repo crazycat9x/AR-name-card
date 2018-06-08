@@ -1,10 +1,15 @@
+a-scene {
+    display: block;
+    width: 100vw !important;
+    height: 100vh !important;
+}
 #app{
     z-index: 1;
 }
 #snap-button-wrapper{
     position: fixed;
     bottom:0;
-    width: 100%;
+    width: 100vw;
     z-index: 9999;
     display: flex;
     align-items: center;
