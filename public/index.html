@@ -16,7 +16,7 @@
         </a-assets>
 
         <a-marker v-for="data in markerData" type="pattern" v-bind:url="'./markers/'+data.marker+'.patt'">
-            <a-image rotation="-90 0 0" scale="3 3 3" crossorigin="anonymous" v-bind:src="'#'+data.image"></a-image>
+            <a-image width="2" height="3" rotation="-90 0 0" crossorigin="anonymous" v-bind:src="'#'+data.image"></a-image>
         </a-marker>
 
         <a-entity camera></a-entity>
