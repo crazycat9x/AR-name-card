@@ -11,7 +11,7 @@
 
 <body style='margin : 0px; overflow: hidden;'>
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-    <a-scene id="app" arjs='debugUIEnabled: false;'>
+    <a-scene id="app" arjs='debugUIEnabled: false;' embedded>
         <a-assets>
             <img v-for="data in markerData" v-bind:id="data.image" v-bind:src="'./figures/'+data.image+'.png'">
         </a-assets>
